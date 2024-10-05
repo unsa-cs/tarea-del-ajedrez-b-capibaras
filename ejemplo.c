@@ -3,8 +3,7 @@
 #include <stdio.h>
 void display()
 {
-  char** blackSquare = reverse(whiteSquare);
-  char** result = repeatH(join(whiteSquare, blackSquare), 4);
+  char** result = repeatH(join(whiteSquare, reverse(whiteSquare)), 4);
   interpreter(result);
 }
 
