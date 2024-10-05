@@ -4,6 +4,7 @@
 void display()
 {
   char** result = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
-  interpreter(result);
+  char** tablero=repeatV(result,8);
+  interpreter(tablero);
 }
 
