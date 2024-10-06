@@ -10,7 +10,10 @@ void display()
   
   char** tablero=repeatV(dosLineasUnidas,2);
   char** a=superImpose(rook,tablero);
-  char** c_torre=superImpose(rook,whiteSquare);
-  interpreter(c_torre);
+  char** blackSquare=reverse(whiteSquare);
+  char** c_torre=superImpose(rook,blackSquare);
+  char** c_caballo=superImpose(knight,whiteSquare);
+  char** unidos=join(c_torre,c_caballo);
+  interpreter(unidos);
 }
 
