@@ -31,11 +31,13 @@ void display()
   char** unidos3=join(unirReyAlfil,unirCaballo2Torre2);
   char** unionFinal=join(unidos2, unidos3);
 
-  char** result1 = superImpose(pawn, blackSquare);
-  char** result2 = superImpose(pawn, whiteSquare);
+  char** result1 = superImpose(pawn, whiteSquare);
+  char** result2 = superImpose(pawn, blackSquare);
   char** result = repeatH(join(result1, result2), 4);
 
-  interpreter(result);
+  char** equipoBlanco = up(unionFinal, result);
+
+  interpreter(equipoBlanco);
   
   int i=0;
   while (unionFinal[i]!=0)
