@@ -3,8 +3,12 @@
 #include <stdio.h>
 void display()
 {
-  char** result = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
-  char** tablero=repeatV(result,8);
+  char** primeraLinea = repeatH(join(whiteSquare, reverse(whiteSquare)), 4);
+  char** segundaLinea = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
+  
+  char** dosLineasUnidas = up(primeraLinea, segundaLinea);
+
+  char** tablero=repeatV(dosLineasUnidas,4);
   interpreter(tablero);
 }
 
