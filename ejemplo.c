@@ -7,8 +7,9 @@ void display()
   char** primeraLinea = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
   
   char** dosLineasUnidas = up(primeraLinea, segundaLinea);
-
+  
   char** tablero=repeatV(dosLineasUnidas,2);
-  interpreter(tablero);
+  char** a=superImpose(rook,tablero);
+  interpreter(a);
 }
 
