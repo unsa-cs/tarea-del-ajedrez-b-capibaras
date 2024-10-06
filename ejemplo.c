@@ -4,13 +4,14 @@
 #include <cstdlib>
 void display()
 {
+  
   char** segundaLinea = repeatH(join(whiteSquare, reverse(whiteSquare)), 4);
   char** primeraLinea = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
-  
+  /*
   char** dosLineasUnidas = up(primeraLinea, segundaLinea);
   
   char** tablero=repeatV(dosLineasUnidas,2);
-
+  */
   char** blackSquare=reverse(whiteSquare);
 
   //
@@ -36,8 +37,9 @@ void display()
   char** result = repeatH(join(result1, result2), 4);
 
   char** equipoBlanco = up(unionFinal, result);
-
-  interpreter(equipoBlanco);
+  char** lineasunidas = up(primeraLinea,segundaLinea);
+  char** resultado = up(equipoBlanco,lineasunidas);
+  interpreter(resultado);
   
   int i=0;
   while (unionFinal[i]!=0)
