@@ -1,6 +1,7 @@
 #include "chess.h"
 #include "figures.h"
 #include <stdio.h>
+#include <cstdlib>
 void display()
 {
   char** segundaLinea = repeatH(join(whiteSquare, reverse(whiteSquare)), 4);
@@ -30,5 +31,13 @@ void display()
   char** unidos3=join(unirReyAlfil,unirCaballo2Torre2);
   char** unionFinal=join(unidos2, unidos3);
   interpreter(unionFinal);
+  
+  int i=0;
+  while (unionFinal[i]!=0)
+  {
+    free(unionFinal[i]);
+    i++;
+  }
+  free(unionFinal);
 }
 
