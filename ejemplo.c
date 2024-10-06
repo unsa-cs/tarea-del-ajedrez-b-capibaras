@@ -18,12 +18,17 @@ void display()
   char** c_alfil = superImpose(bishop, blackSquare);
   char** c_dama = superImpose(queen, whiteSquare);
   char** c_rey = superImpose(king, blackSquare);
-
+  char** c_alfil2 = superImpose(bishop, whiteSquare);
+  char** c_caballo2 = superImpose(knight,blackSquare);
+  char** c_torre2=superImpose(rook,whiteSquare);
   //
   char** unirAlfilDama = join(c_alfil, c_dama);
   char** unidos=join(c_torre,c_caballo);
-
-  char** unionFinal = join(unidos, unirAlfilDama);
+  char** unirReyAlfil=join(c_rey,c_alfil2);
+  char** unirCaballo2Torre2=join(c_caballo2,c_torre2);
+  char** unidos2 = join(unidos, unirAlfilDama);
+  char** unidos3=join(unirReyAlfil,unirCaballo2Torre2);
+  char** unionFinal=join(unidos2, unidos3);
   interpreter(unionFinal);
 }
 
