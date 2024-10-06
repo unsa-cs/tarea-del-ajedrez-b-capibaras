@@ -3,8 +3,8 @@
 #include <stdio.h>
 void display()
 {
-  char** primeraLinea = repeatH(join(whiteSquare, reverse(whiteSquare)), 4);
-  char** segundaLinea = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
+  char** segundaLinea = repeatH(join(whiteSquare, reverse(whiteSquare)), 4);
+  char** primeraLinea = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
   
   char** dosLineasUnidas = up(primeraLinea, segundaLinea);
 
