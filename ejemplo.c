@@ -10,6 +10,7 @@ void display()
   
   char** tablero=repeatV(dosLineasUnidas,2);
   char** a=superImpose(rook,tablero);
-  interpreter(a);
+  char** c_torre=superImpose(rook,whiteSquare);
+  interpreter(c_torre);
 }
 
