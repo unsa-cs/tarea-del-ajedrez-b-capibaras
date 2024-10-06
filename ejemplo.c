@@ -32,29 +32,35 @@ void display()
     *fic_cas+=2;
     p++;
   }
-  char** unirAlfilDama = join(c_alfil, c_dama);
-  char** unidos=join(c_torre,c_caballo);
-  char** unirReyAlfil=join(c_rey,c_alfil2);
-  char** unirCaballo2Torre2=join(c_caballo2,c_torre2);
-  char** unidos2 = join(unidos, unirAlfilDama);
-  char** unidos3=join(unirReyAlfil,unirCaballo2Torre2);
-  char** unionFinal=join(unidos2, unidos3);
+
+  char** ude4[2];
   
+  /*
+  while(p<2)
+  {
+    ude4[p]=join(*(uniones),*(uniones+1));
+    *uniones+=2;
+    p++; 
+  }*/
+  
+  char** mitad1 = join(uniones[1],uniones[2]);
+
   char** result1 = superImpose(pawn, whiteSquare);
   char** result2 = superImpose(pawn, blackSquare);
   char** filapeones = repeatH(join(result1, result2), 4);
-
+  
+  /*
   char** equipoBlanco = up(unionFinal, filapeones);
-  char** lineasunidas = up(primeraLinea,segundaLinea);
-  char** resultado = up(equipoBlanco,lineasunidas);
-  interpreter(uniones[0]);
+  char** lineasunidas = up(primeraLinea,segundaLinea);*/
+  //char** resultado = up(equipoBlanco,lineasunidas);
+  interpreter(mitad1);
   
   int i=0;
-  while (unionFinal[i]!=0)
+  while (mitad1[i]!=0)
   {
-    free(unionFinal[i]);
+    free(mitad1[i]);
     i++;
   }
-  free(unionFinal);
+  free(mitad1);
 }
 
