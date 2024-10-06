@@ -8,7 +8,7 @@ void display()
   
   char** dosLineasUnidas = up(primeraLinea, segundaLinea);
 
-  char** tablero=repeatV(dosLineasUnidas,4);
+  char** tablero=repeatV(dosLineasUnidas,2);
   interpreter(tablero);
 }
 
