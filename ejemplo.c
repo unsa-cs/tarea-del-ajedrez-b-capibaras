@@ -14,14 +14,14 @@ void display()
   char** blackSquare=reverse(whiteSquare);
 
   //
-  char** c_torre=superImpose(reverse(rook),blackSquare);
-  char** c_caballo=superImpose(reverse(knight),whiteSquare);
-  char** c_alfil = superImpose(reverse(bishop), blackSquare);
-  char** c_dama = superImpose(reverse(queen), whiteSquare);
-  char** c_rey = superImpose(reverse(king), blackSquare);
-  char** c_alfil2 = superImpose(reverse(bishop), whiteSquare);
-  char** c_caballo2 = superImpose(reverse(knight),blackSquare);
-  char** c_torre2=superImpose(reverse(rook),whiteSquare);
+  char** c_torre=superImpose(rook,blackSquare);
+  char** c_caballo=superImpose(knight,whiteSquare);
+  char** c_alfil = superImpose(bishop, blackSquare);
+  char** c_dama = superImpose(queen, whiteSquare);
+  char** c_rey = superImpose(king, blackSquare);
+  char** c_alfil2 = superImpose(bishop, whiteSquare);
+  char** c_caballo2 = superImpose(knight,blackSquare);
+  char** c_torre2=superImpose(rook,whiteSquare);
   //
   char** unirAlfilDama = join(c_alfil, c_dama);
   char** unidos=join(c_torre,c_caballo);
