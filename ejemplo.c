@@ -7,11 +7,7 @@ void display()
   
   char** segundaLinea = repeatH(join(whiteSquare, reverse(whiteSquare)), 4);
   char** primeraLinea = repeatH(join(reverse(whiteSquare), whiteSquare), 4);
-  /*
-  char** dosLineasUnidas = up(primeraLinea, segundaLinea);
   
-  char** tablero=repeatV(dosLineasUnidas,2);
-  */
   char** blackSquare=reverse(whiteSquare);
   //
   char** c_torre=superImpose(rook,blackSquare);
@@ -22,45 +18,60 @@ void display()
   char** c_alfil2 = superImpose(bishop, whiteSquare);
   char** c_caballo2 = superImpose(knight,blackSquare);
   char** c_torre2=superImpose(rook,whiteSquare);
+
+  char** c_torreN = superImpose(reverse(rook), blackSquare);
+  char** c_caballoN = superImpose(reverse(knight), whiteSquare);
+  char** c_alfilN = superImpose(reverse(bishop), blackSquare);
+  char** c_damaN = superImpose(reverse(queen), whiteSquare);
+  char** c_reyN = superImpose(reverse(king), blackSquare);
+  char** c_alfil2N = superImpose(reverse(bishop), whiteSquare);
+  char** c_caballo2N = superImpose(reverse(knight), blackSquare);
+  char** c_torre2N = superImpose(reverse(rook), whiteSquare);
+
+  char** torreCaballo = join(c_torre, c_caballo);
+  char** alfilDama = join(c_alfil, c_dama);
+  char** reyAlfil2 = join(c_rey, c_alfil2);
+  char** caballo2Torre2 = join(c_caballo2, c_torre2);
+
+  char** torreCaballoN = join(c_torreN, c_caballoN);
+  char** alfilDamaN = join(c_alfilN, c_damaN);
+  char** reyAlfil2N = join(c_reyN, c_alfil2N);
+  char** caballo2Torre2N = join(c_caballo2N, c_torre2N);
+
+  char** medioEquipoB1 = join(torreCaballo, alfilDama);
+  char** medioEquipoB2 = join(reyAlfil2, caballo2Torre2);
+
+  char** medioEquipoN1 = join(torreCaballoN, alfilDamaN);
+  char** medioEquipoN2 = join(reyAlfil2N, caballo2Torre2N);
+
+  char** equipoBlanco = join(medioEquipoB1, medioEquipoB2);
+  char** equipoNegro = join(medioEquipoN1, medioEquipoN2);
   //
-  char** fic_cas[8]={c_torre,c_caballo,c_alfil,c_dama,c_rey,c_alfil2,c_caballo2,c_torre2};
-  char** uniones[4];
-  int p=0;
-  while(p<4)
-  {
-    uniones[p]=join(*(fic_cas),*(fic_cas+1));
-    *fic_cas+=2;
-    p++;
-  }
+  char** result1B = superImpose(pawn, whiteSquare);
+  char** result2B = superImpose(pawn, blackSquare);
 
-  char** ude4[2];
-  
-  /*
-  while(p<2)
-  {
-    ude4[p]=join(*(uniones),*(uniones+1));
-    *uniones+=2;
-    p++; 
-  }*/
-  
-  char** mitad1 = join(uniones[1],uniones[2]);
+  char** result1N = superImpose(reverse(pawn), whiteSquare);
+  char** result2N = superImpose(reverse(pawn), blackSquare);
 
-  char** result1 = superImpose(pawn, whiteSquare);
-  char** result2 = superImpose(pawn, blackSquare);
-  char** filapeones = repeatH(join(result1, result2), 4);
+  char** filapeones = repeatH(join(result1B, result2B), 4);
+  char** filapeonesN = repeatH(join(result1N, result2N), 4);
   
-  /*
-  char** equipoBlanco = up(unionFinal, filapeones);
-  char** lineasunidas = up(primeraLinea,segundaLinea);*/
-  //char** resultado = up(equipoBlanco,lineasunidas);
-  interpreter(mitad1);
+  char** equipoBlancoCompleto = up(equipoBlanco, filapeones);
+  char** equipoNegroCompleto = up(filapeonesN, equipoNegro);
+  
+  char** lineasunidas = up(primeraLinea,segundaLinea);
+  char** lineasunidas2 = up(lineasunidas, lineasunidas);
+  char** resultado = up(equipoBlancoCompleto,lineasunidas2);
+  char** resultadoFinal = up(resultado, equipoNegroCompleto);
+
+  interpreter(resultadoFinal);
   
   int i=0;
-  while (mitad1[i]!=0)
+  while (equipoBlancoCompleto [i] != 0)
   {
-    free(mitad1[i]);
+    free(equipoBlancoCompleto [i]);
     i++;
   }
-  free(mitad1);
+  free(equipoBlancoCompleto);
 }
 
