@@ -63,8 +63,10 @@ void display()
   char** lineasunidas2 = up(lineasunidas, lineasunidas);
   char** resultado = up(equipoBlancoCompleto,lineasunidas2);
   char** resultadoFinal = up(resultado, equipoNegroCompleto);
-
-  interpreter(resultadoFinal);
+  char** filabn=join(whiteSquare,blackSquare);
+  char** filaKHom= superImpose(knight,whiteSquare);
+  char** filakhet= superImpose(rotateL(knight),reverse(whiteSquare));
+  interpreter(filakhet);
   
   int i=0;
   while (equipoBlancoCompleto [i] != 0)
