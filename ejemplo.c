@@ -19,14 +19,14 @@ void display()
   char** c_caballo2 = superImpose(knight,blackSquare);
   char** c_torre2=superImpose(rook,whiteSquare);
 
-  char** c_torreN = superImpose(reverse(rook), blackSquare);
-  char** c_caballoN = superImpose(reverse(knight), whiteSquare);
-  char** c_alfilN = superImpose(reverse(bishop), blackSquare);
-  char** c_damaN = superImpose(reverse(queen), whiteSquare);
-  char** c_reyN = superImpose(reverse(king), blackSquare);
-  char** c_alfil2N = superImpose(reverse(bishop), whiteSquare);
-  char** c_caballo2N = superImpose(reverse(knight), blackSquare);
-  char** c_torre2N = superImpose(reverse(rook), whiteSquare);
+  char** c_torreN = superImpose(reverse(rook), whiteSquare);
+  char** c_caballoN = superImpose(reverse(knight), blackSquare);
+  char** c_alfilN = superImpose(reverse(bishop), whiteSquare);
+  char** c_damaN = superImpose(reverse(queen), blackSquare);
+  char** c_reyN = superImpose(reverse(king), whiteSquare);
+  char** c_alfil2N = superImpose(reverse(bishop), blackSquare);
+  char** c_caballo2N = superImpose(reverse(knight), whiteSquare);
+  char** c_torre2N = superImpose(reverse(rook), blackSquare);
 
   char** torreCaballo = join(c_torre, c_caballo);
   char** alfilDama = join(c_alfil, c_dama);
@@ -50,8 +50,8 @@ void display()
   char** result1B = superImpose(pawn, whiteSquare);
   char** result2B = superImpose(pawn, blackSquare);
 
-  char** result1N = superImpose(reverse(pawn), whiteSquare);
-  char** result2N = superImpose(reverse(pawn), blackSquare);
+  char** result1N = superImpose(reverse(pawn), blackSquare);
+  char** result2N = superImpose(reverse(pawn), whiteSquare);
 
   char** filapeones = repeatH(join(result1B, result2B), 4);
   char** filapeonesN = repeatH(join(result1N, result2N), 4);
